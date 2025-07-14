@@ -80,10 +80,26 @@ body {
 /* CTA */
 .bg-primary .button { @apply bg-pure-white text-primary; }
 
-/* Contact Form */
+/* Contact Form - Enhanced */
 .contact-form input,
-.contact-form textarea { @apply w-full p-3 border rounded; }
-.contact-form button { @apply button white w-full; }
+.contact-form textarea {
+  @apply w-full p-4 border border-slate-200 rounded-xl focus:ring-2 focus:ring-primary focus:outline-none transition-shadow shadow-sm;
+}
+.contact-form textarea {
+  @apply resize-none;
+}
+.contact-form button {
+  @apply w-full bg-primary text-white font-semibold px-8 py-3 rounded-xl shadow-lg hover:bg-primary-dark transition-transform transform hover:scale-105 text-lg tracking-wide;
+}
+
+/* Optional: Subtle glassy card effect (applied to the wrapping card div) */
+.contact-card {
+  backdrop-filter: blur(2px);
+  box-shadow: 0 8px 32px 0 rgba(60,60,100,0.10), 0 1.5px 8px 0 rgba(0,0,0,0.02);
+  border: 1px solid rgba(180,180,220,0.13);
+  background-color: rgba(255,255,255,0.95); /* fallback for no backdrop-filter */
+}
+
 
 /* Footer */
 footer { @apply bg-dark-charcoal text-pure-white py-8; }
