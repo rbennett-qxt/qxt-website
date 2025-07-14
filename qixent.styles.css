@@ -93,3 +93,115 @@ footer a:hover { @apply underline; }
 @media (max-width: 768px) {
   .nav-links.hidden { @apply flex flex-col; }
 }
+
+/* Mobile Layout */
+/* Tailwind CDN */
+@import url("https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css");
+
+/* Brand Color Variables */
+:root {
+  --qixent-orange: #F48F51;
+  --dark-charcoal: #343A40;
+  --slate-gray: #586374;
+  --cloud-white: #F8F9FA;
+  --pure-white: #FFFFFF;
+  --light-stone: #EDEDED;
+  --violet-spark: #AA7DF4;
+  --mint-fresh: #4EC79E;
+  --sunset-coral: #FF6B6B;
+}
+
+/* Global Base */
+body {
+  @apply font-sans text-dark-charcoal bg-pure-white;
+}
+
+/* Typography */
+.font-head { font-family: 'Panton Narrow', sans-serif; font-weight: 700; }
+.text-primary { color: var(--qixent-orange); }
+.text-slate { color: var(--slate-gray); }
+.text-dark { color: var(--dark-charcoal); }
+
+/* Backgrounds */
+.bg-primary { background-color: var(--qixent-orange); }
+.bg-cloud { background-color: var(--cloud-white); }
+.bg-light { background-color: var(--light-stone); }
+.bg-violet { background-color: var(--violet-spark); }
+.bg-mint { background-color: var(--mint-fresh); }
+.bg-coral { background-color: var(--sunset-coral); }
+
+/* Buttons */
+.button {
+  @apply inline-block px-6 py-3 rounded font-semibold text-base;
+}
+.button.primary { @apply bg-primary text-pure-white; }
+.button.white {
+  @apply bg-pure-white text-primary border border-primary;
+}
+
+/* Announcement Bar */
+.announcement-bar { @apply bg-primary text-pure-white py-2 text-center; }
+
+/* Navbar */
+.navbar { @apply bg-pure-white shadow; }
+.nav-links a { @apply px-4 py-2; }
+
+/* Hero */
+.hero { @apply text-pure-white; }
+.hero .container { @apply relative overflow-hidden; }
+
+/* Stats */
+.stat-card { @apply p-4 bg-cloud rounded shadow; }
+.stat-card .font-head { @apply text-3xl; }
+
+/* Features */
+.features-section img { @apply mx-auto mb-4 h-12; }
+.features-section h4 { @apply font-head mb-2; }
+.features-section p { @apply text-slate; }
+
+/* Services Overview */
+.services-overview .bg-cloud { @apply p-6 rounded shadow hover:shadow-lg transition; }
+
+/* Testimonials */
+.testimonials p { @apply italic text-slate; }
+
+/* Industries */
+.industries ul li { @apply list-disc ml-6 text-slate mb-2; }
+
+/* Integration Diagram */
+.integration-diagram div,
+.integration-diagram .w-8 { @apply flex-shrink-0; }
+.integration-diagram .bg-primary { @apply text-pure-white; }
+
+/* CTA */
+.bg-primary .button { @apply bg-pure-white text-primary; }
+
+/* Contact Form */
+.contact-form input,
+.contact-form textarea { @apply w-full p-3 border rounded; }
+.contact-form button { @apply button white w-full; }
+
+/* Footer */
+footer { @apply bg-dark-charcoal text-pure-white py-8; }
+footer h4 { @apply font-head mb-2; }
+footer a:hover { @apply underline; }
+
+/* Responsive */
+@media (max-width: 768px) {
+  .nav-links.hidden { @apply flex flex-col; }
+}
+
+.container {
+  padding-left: 1.25rem !important;
+  padding-right: 1.25rem !important;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media (min-width: 768px) {
+  .container {
+    padding-left: 2rem !important;
+    padding-right: 2rem !important;
+  }
+}
