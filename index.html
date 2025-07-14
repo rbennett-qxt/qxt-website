@@ -32,68 +32,95 @@
 
   <!-- Alpine.js -->
   <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
-  </head>
-  <body class="antialiased">
+</head>
+<body class="antialiased pt-20">
 
-<!-- Announcement Bar -->
-<div class="announcement-bar bg-primary text-white py-2 text-center">
-  <a href="/news/qixent-launch" class="underline">Insurance should be more valuable.</a>
-</div>
-
-<!-- Navbar -->
-<nav x-data="{open:false}" class="navbar bg-white shadow">
-  <div class="container flex items-center justify-between py-4 px-6 md:px-12">
-    <a href="#hero" class="logo-link">
-      <img src="https://qixent.com/wp-content/uploads/2024/05/Qixent-Logo.png" alt="Qixent logo" class="h-8">
-    </a>
-    <button class="nav-toggle md:hidden" @click="open=!open" aria-label="Toggle menu">
-      <span class="sr-only">Open menu</span>
-      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-dark" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
-      </svg>
-    </button>
-    <ul :class="open?'flex':'hidden'" class="nav-links flex-col md:flex-row md:space-x-6 space-y-2 md:space-y-0">
-      <li><a href="#hero" class="hover:text-primary">Home</a></li>
-      <li><a href="#features" class="hover:text-primary">Features</a></li>
-      <li><a href="#industries" class="hover:text-primary">Industries</a></li>
-      <li><a href="#about" class="hover:text-primary">About</a></li>
-      <li><a href="/blog" class="button">Blog</a></li>
-      <li><a href="#contact" class="button primary">Contact Us</a></li>
-    </ul>
+  <!-- Announcement Bar (Sticky) -->
+  <div class="announcement-bar bg-primary text-white py-2 text-center fixed top-0 left-0 w-full z-50">
+    <a href="/news/qixent-launch" class="underline">Insurance should be more valuable.</a>
   </div>
-</nav>
 
-<!-- Hero Slider -->
-<section id="hero" class="hero-section bg-gradient-to-r from-cloud-white to-light-stone py-20">
-  <div class="container mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-    <!-- Enhanced Text Content -->
-    <div class="hero-content space-y-6">
-      <p class="text-sm font-medium uppercase tracking-wider text-slate-500">
-        Reimagining Insurance to Unlock Real Customer Value
-      </p>
-      <h1 class="text-4xl lg:text-6xl font-bold text-dark-charcoal">
-        A unified exchange platform for <span class="text-primary">Insurance</span>
-      </h1>
-      <p class="text-lg lg:text-xl text-slate-700">
-        Increase your sales conversions, build lasting trust, deliver unmatched value, and encourage repeat business—seamlessly.
-      </p>
-      <div class="flex flex-wrap gap-4">
-        <a href="#get-started" class="inline-block bg-primary text-white font-semibold px-8 py-3 rounded-md shadow-lg hover:bg-primary-dark transition-transform transform hover:scale-105">
-          Get Started
-        </a>
-        <a href="#features" class="inline-block bg-transparent border border-primary text-primary font-semibold px-8 py-3 rounded-md hover:bg-primary hover:text-white transition">
-          Explore Features
-        </a>
+  <!-- Navbar (Sticky, sits below Announcement Bar) -->
+  <nav x-data="{open:false}" class="navbar bg-white shadow fixed top-10 left-0 w-full z-40">
+    <div class="container flex items-center justify-between py-4 px-6 md:px-12">
+      <a href="#hero" class="logo-link">
+        <img src="https://qixent.com/wp-content/uploads/2024/05/Qixent-Logo.png" alt="Qixent logo" class="h-8">
+      </a>
+      <button class="nav-toggle md:hidden" @click="open=!open" aria-label="Toggle menu">
+        <span class="sr-only">Open menu</span>
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-dark" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+      </button>
+      <ul :class="open?'flex':'hidden'" class="nav-links flex-col md:flex-row md:space-x-6 space-y-2 md:space-y-0">
+        <li><a href="#hero" class="hover:text-primary">Home</a></li>
+        <li><a href="#features" class="hover:text-primary">Features</a></li>
+        <li><a href="#industries" class="hover:text-primary">Industries</a></li>
+        <li><a href="#about" class="hover:text-primary">About</a></li>
+        <li><a href="/blog" class="button">Blog</a></li>
+        <li><a href="#contact" class="button primary">Contact Us</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section id="hero" class="hero-section bg-gradient-to-r from-cloud-white to-light-stone py-20 pt-36 relative overflow-hidden">
+    <div class="container mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+      <!-- MOBILE: Floating Hero Card over Image -->
+      <div class="block lg:hidden relative w-full">
+        <img src="https://qixent.com/wp-content/uploads/2025/07/hero-illustration-insurance.png" alt="Abstract geometric insurance illustration" class="w-full h-auto">
+        <div class="absolute top-0 left-0 w-full h-full flex items-center justify-center">
+          <div class="bg-white bg-opacity-90 rounded-xl shadow-xl px-6 py-8 max-w-xs mx-auto mt-8 backdrop-blur-sm">
+            <p class="text-xs font-semibold uppercase tracking-widest text-slate-500 mb-3 text-center">
+              A simple solution to grow your sales
+            </p>
+            <h1 class="text-2xl font-bold text-dark-charcoal mb-4 text-center">
+              A unified <span class="text-primary"> insurance exchange platform</span>
+            </h1>
+            <p class="text-base text-slate-700 mb-6 text-center">
+              Increase your sales conversions, build lasting trust, deliver unmatched value, and encourage repeat business—seamlessly.
+            </p>
+            <div class="flex flex-col gap-4">
+              <a href="#get-started" class="block bg-primary text-white font-semibold px-6 py-3 rounded-md shadow-lg hover:bg-primary-dark text-center">
+                Get Started
+              </a>
+              <a href="#features" class="block bg-transparent border border-primary text-primary font-semibold px-6 py-3 rounded-md hover:bg-primary hover:text-white transition text-center">
+                Explore Features
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- DESKTOP: 2-col grid, all text left, image right -->
+      <div class="hidden lg:flex flex-col justify-center h-full">
+        <div class="flex flex-col gap-4 items-start">
+          <p class="text-xs font-semibold uppercase tracking-widest text-slate-500 mb-2">
+            A simple solution to grow your sales
+          </p>
+          <h1 class="text-6xl font-bold text-dark-charcoal leading-tight mb-2">
+            A unified <span class="text-primary"> insurance exchange platform</span>
+          </h1>
+          <p class="text-xl text-slate-700 max-w-lg mb-6">
+            Increase your sales conversions, build lasting trust, deliver unmatched value, and encourage repeat business—seamlessly.
+          </p>
+          <div class="flex gap-4">
+            <a href="#get-started" class="inline-block bg-primary text-white font-semibold px-8 py-4 rounded-lg shadow-lg hover:bg-primary-dark transition-transform transform hover:scale-105">
+              Get Started
+            </a>
+            <a href="#features" class="inline-block bg-transparent border-2 border-primary text-primary font-semibold px-8 py-4 rounded-lg hover:bg-primary hover:text-white transition">
+              Explore Features
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="hidden lg:block hero-graphic relative h-full flex items-center justify-center">
+        <img src="https://qixent.com/wp-content/uploads/2025/07/hero-illustration-insurance.png" alt="Abstract geometric insurance illustration" class="w-full h-auto animate-float" style="max-width:540px; min-width:350px; margin:auto;">
       </div>
     </div>
-    <!-- Enhanced Graphic Illustration with animation -->
-    <div class="hero-graphic">
-      <img src="https://qixent.com/wp-content/uploads/2025/07/hero-illustration-insurance.png" alt="Abstract geometric insurance illustration" class="w-full h-auto animate-float">
-    </div>
-  </div>
-</section>
+  </section>
 
-<!-- Stats -->
+
+    <!-- Stats -->
 <section class="stats bg-cloud py-16">
   <div class="container mx-auto">
     <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
@@ -169,50 +196,82 @@
   </div>
 </section>
 
-
-<!-- Integration Diagram -->
+<!-- Integration Diagram, with CTA full width on mobile -->
 <section id="integration" class="py-16 bg-white text-dark-charcoal">
   <div class="container mx-auto flex flex-col lg:flex-row items-center justify-between gap-12">
     <!-- Left Side (Text Content) -->
-    <div class="lg:w-1/2 space-y-6">
+    <div class="lg:w-1/2 space-y-6 w-full">
       <h2 class="text-4xl font-bold">Win More Deals with Protection Customers Understand and Trust</h2>
       <p class="text-slate mb-10">Flexible no-code options enable you to launch rapidly, saving you time and resources.</p>
-      <a href="#contact" class="inline-block bg-primary text-white font-semibold px-6 py-3 rounded-lg hover:bg-red-600 transition">
+      <!-- Button only shows here on desktop -->
+      <a href="#contact" class="hidden lg:inline-block bg-primary text-white font-semibold px-6 py-3 rounded-lg hover:bg-red-600 transition">
         Talk to sales
       </a>
     </div>
 
-    <!-- Right Side (Integration Diagram) -->
-    <div class="lg:w-1/2 flex items-center justify-center gap-6">
+    <!-- Integration Diagram Responsive -->
+    <div class="flex flex-col lg:flex-row items-center justify-center gap-6 w-full">
       <!-- Insurer Box -->
-      <div class="p-6 bg-violet rounded-lg shadow-lg flex flex-col items-center text-white w-40 h-40 justify-center">
+      <div class="integration-diagram-box p-6 bg-violet rounded-lg shadow-lg flex flex-col items-center text-white justify-center">
         <img src="https://qixent.com/wp-content/uploads/2025/07/insurer.png" alt="Insurer Icon" class="w-12 h-12 mb-2">
         <span class="font-semibold">Insurer</span>
       </div>
-
-      <!-- Arrow to Qixent -->
-      <div class="w-10 border-t-2 border-dashed border-slate"></div>
+      <!-- Arrow: vertical on mobile, horizontal on desktop -->
+      <div class="block lg:hidden h-8 border-l-2 border-dashed border-slate mx-auto"></div>
+      <div class="hidden lg:block w-10 border-t-2 border-dashed border-slate"></div>
 
       <!-- Qixent Box -->
-      <div class="p-6 bg-primary rounded-lg shadow-lg flex flex-col items-center text-white w-40 h-40 justify-center">
+      <div class="integration-diagram-box p-6 bg-primary rounded-lg shadow-lg flex flex-col items-center text-white justify-center">
         <img src="https://qixent.com/wp-content/uploads/2025/06/Qixent-Logo-Q-Stamp-Cloud.webp" alt="Qixent Icon" class="w-12 h-12 mb-2">
         <span class="font-semibold">Qixent</span>
       </div>
-
-      <!-- Arrow to Customer Experience -->
-      <div class="w-10 border-t-2 border-dashed border-slate"></div>
+      <!-- Arrow: vertical on mobile, horizontal on desktop -->
+      <div class="block lg:hidden h-8 border-l-2 border-dashed border-slate mx-auto"></div>
+      <div class="hidden lg:block w-10 border-t-2 border-dashed border-slate"></div>
 
       <!-- Customer Experience Box -->
-      <div class="p-6 bg-mint rounded-lg shadow-lg flex flex-col items-center text-white w-40 h-40 justify-center">
+      <div class="integration-diagram-box p-6 bg-mint rounded-lg shadow-lg flex flex-col items-center text-white justify-center">
         <img src="https://qixent.com/wp-content/uploads/2025/07/purchase.png" alt="Experience Icon" class="w-12 h-12 mb-2">
         <span class="font-semibold text-center">Your Distribution</span>
       </div>
     </div>
+    <!-- Button only shows here on mobile, full width to match boxes -->
+    <div class="w-full flex lg:hidden justify-center mt-8">
+      <a href="#contact" class="integration-cta-mobile block bg-transparent border border-primary text-primary font-semibold px-6 py-3 rounded-md hover:bg-primary hover:text-white transition text-center"
+         style="width:90vw;max-width:22rem;padding:0.75rem 0;font-size:1.125rem;">
+        Talk to sales
+      </a>
+    </div>
   </div>
 </section>
 
+<!-- Responsive styling for diagram and CTA button -->
+<style>
+.integration-diagram-box {
+width: 10rem;
+  height: 10rem;
+  max-width: 100vw;
+  min-width: 8rem;
+  min-height: 8rem;
+  margin-left: auto;
+  margin-right: auto;
+  box-sizing: border-box;
+}
+  .integration-cta-mobile {
+    width: 70vw !important;
+    max-width: 22rem;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 1.125rem;
+    padding: 0.75rem 0;
+    display: block;
+  }
+}
+</style>
 
-<!-- Industries -->
+
+
+    <!-- Industries -->
 <section id="industries" class="py-16 bg-white">
   <div class="container mx-auto">
     <h2 class="font-head text-3xl text-center mb-10">Industries We Support Today</h2>
@@ -294,64 +353,100 @@
   </div>
 </section>
 
-<section id="contact" class="py-20 bg-cloud-white">
-  <div class="container max-w-xl mx-auto bg-white rounded-lg shadow-xl p-8">
-    <h2 class="text-3xl font-head font-semibold text-center mb-8">Contact Us</h2>
-    <form class="contact-form space-y-6">
-      <input type="text" placeholder="Your Name" class="w-full p-4 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary">
-      <input type="email" placeholder="you@example.com" class="w-full p-4 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary">
-      <textarea rows="6" placeholder="Your message..." class="w-full p-4 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary"></textarea>
-      <button type="submit" class="inline-block bg-primary text-white font-semibold px-8 py-3 rounded-md shadow-lg hover:bg-primary-dark transition-transform transform hover:scale-105">
-          Send Message</button>
-    </form>
-  </div>
-</section>
-
-<!-- Footer Section -->
-<footer class="bg-light text-dark py-8">
-  <div class="container mx-auto px-4 text-center space-y-8">
-
-    <!-- Grid Layout for Footer Links -->
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-center">
-      <!-- Qixent Stamp -->
-      <div>
-        <img src="https://qixent.com/wp-content/uploads/2025/06/Qixent-Logo-Q-Stamp.webp" alt="Qixent Stamp Logo" class="mx-auto h-10 w-auto">
-      </div>
-
-      <!-- Qixent Information -->
-      <div>
-        <h4 class="font-head text-xl font-semibold mb-4">Qixent</h4>
-        <ul class="space-y-2">
-          <li><a href="#about" class="hover:text-primary transition">About Us</a></li>
-          <li><a href="#careers" class="hover:text-primary transition">Careers</a></li>
-          <li><a href="#privacy" class="hover:text-primary transition">Privacy Policy</a></li>
-        </ul>
-      </div>
-
-      <!-- Connect Information -->
-      <div>
-        <h4 class="font-head text-xl font-semibold mb-4">Connect</h4>
-        <ul class="space-y-2">
-          <li><a href="mailto:info@qixent.com" class="hover:text-primary transition">info@qixent.com</a></li>
-          <li><a href="#contact" class="hover:text-primary transition">Contact Us</a></li>
-        </ul>
+  <!-- Contact Section (Narrow, Enhanced) -->
+  <section id="contact" class="py-20 bg-cloud-white">
+    <div class="container flex justify-center">
+      <div class="contact-card bg-white rounded-2xl shadow-2xl p-8 w-full max-w-xs sm:max-w-sm md:max-w-md">
+        <h2 class="text-3xl font-head font-semibold text-center mb-8">Contact Us</h2>
+        <form class="contact-form space-y-6">
+          <input type="text" placeholder="Your Name" />
+          <input type="email" placeholder="you@example.com" />
+          <textarea rows="6" placeholder="Your message..."></textarea>
+          <button type="submit">
+            Send Message
+          </button>
+        </form>
       </div>
     </div>
+  </section>
 
-    <!-- Copyright -->
-    <div class="text-gray-400">
-      &copy; <span id="currentYear"></span> Qixent, Inc. All Rights Reserved.
+  <!-- Contact Section CSS -->
+  <style>
+    .contact-card {
+      backdrop-filter: blur(2px);
+      box-shadow: 0 8px 32px 0 rgba(60,60,100,0.10), 0 1.5px 8px 0 rgba(0,0,0,0.02);
+      border: 1px solid rgba(180,180,220,0.13);
+      background-color: rgba(255,255,255,0.97);
+    }
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      padding: 1rem;
+      border: 1px solid #e5e7eb;
+      border-radius: 0.75rem;
+      box-shadow: 0 1px 4px 0 rgba(80,80,120,0.06);
+      transition: box-shadow 0.2s, border-color 0.2s;
+      font-size: 1rem;
+    }
+    .contact-form input:focus,
+    .contact-form textarea:focus {
+      border-color: #F48F51;
+      box-shadow: 0 2px 8px 0 rgba(244,143,81,0.09);
+      outline: none;
+    }
+    .contact-form textarea {
+      resize: none;
+    }
+    .contact-form button {
+      width: 100%;
+      background: #F48F51;
+      color: #fff;
+      font-weight: 600;
+      padding: 0.75rem 0;
+      border-radius: 0.75rem;
+      box-shadow: 0 4px 14px 0 rgba(244,143,81,0.12);
+      font-size: 1.1rem;
+      letter-spacing: 0.03em;
+      transition: transform 0.13s, background 0.2s;
+      border: none;
+    }
+    .contact-form button:hover {
+      background: #e97a30;
+      transform: scale(1.04);
+    }
+  </style>
+
+  <!-- Footer Section -->
+  <footer class="bg-light text-dark py-8">
+    <div class="container mx-auto px-4 text-center space-y-8">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-center">
+        <div>
+          <img src="https://qixent.com/wp-content/uploads/2025/06/Qixent-Logo-Q-Stamp.webp" alt="Qixent Stamp Logo" class="mx-auto h-10 w-auto">
+        </div>
+        <div>
+          <h4 class="font-head text-xl font-semibold mb-4">Qixent</h4>
+          <ul class="space-y-2">
+            <li><a href="#about" class="hover:text-primary transition">About Us</a></li>
+            <li><a href="#careers" class="hover:text-primary transition">Careers</a></li>
+            <li><a href="#privacy" class="hover:text-primary transition">Privacy Policy</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="font-head text-xl font-semibold mb-4">Connect</h4>
+          <ul class="space-y-2">
+            <li><a href="mailto:info@qixent.com" class="hover:text-primary transition">info@qixent.com</a></li>
+            <li><a href="#contact" class="hover:text-primary transition">Contact Us</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="text-gray-400">
+        &copy; <span id="currentYear"></span> Qixent, Inc. All Rights Reserved.
+      </div>
     </div>
-  </div>
   </footer>
-  
-  <!-- JavaScript for Dynamic Year -->
   <script>
     document.getElementById('currentYear').textContent = new Date().getFullYear();
   </script>
-</footer>
-
-<script src="qixent-scripts.js"></script>
-
+  <script src="qixent-scripts.js"></script>
 </body>
 </html>
