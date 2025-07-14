@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en" x-data>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Qixent | Insurance-as-a-Service</title>
+  <meta name="description" content="Qixent offers embedded insurance APIs for modern businesses—launch in days, not years.">
+  <!-- Open Graph -->
+  <meta property="og:title" content="Qixent | Insurance-as-a-Service">
+  <meta property="og:description" content="Embed insurance seamlessly with Qixent’s API-first platform—fast, transparent, and scalable.">
+  <meta property="og:image" content="placeholder-og-image.jpg">
+  <meta property="og:type" content="website">
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Qixent | Insurance-as-a-Service">
+  <meta name="twitter:description" content="Embed insurance seamlessly with Qixent’s API-first platform—fast, transparent, and scalable.">
+  <meta name="twitter:image" content="placeholder-og-image.jpg">
+
+  <!-- Favicon -->
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+
+  <!-- Preconnect & Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js"></script>
+  <script>
+    WebFont.load({ google: { families: ['Panton Narrow:400,700','Public Sans:300,400,600,700'] } });
+  </script>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="qixent_styles.css">
+
+  <!-- Alpine.js -->
+  <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+  </head>
+  <body class="antialiased">
+
+<!-- Announcement Bar -->
+<div class="announcement-bar bg-primary text-white py-2 text-center">
+  <a href="/news/qixent-launch" class="underline">Insurance should be more valuable.</a>
+</div>
+
+<!-- Navbar -->
+<nav x-data="{open:false}" class="navbar bg-white shadow">
+  <div class="container flex items-center justify-between py-4 px-6 md:px-12">
+    <a href="#hero" class="logo-link">
+      <img src="https://qixent.com/wp-content/uploads/2024/05/Qixent-Logo.png" alt="Qixent logo" class="h-8">
+    </a>
+    <button class="nav-toggle md:hidden" @click="open=!open" aria-label="Toggle menu">
+      <span class="sr-only">Open menu</span>
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-dark" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+      </svg>
+    </button>
+    <ul :class="open?'flex':'hidden'" class="nav-links flex-col md:flex-row md:space-x-6 space-y-2 md:space-y-0">
+      <li><a href="#hero" class="hover:text-primary">Home</a></li>
+      <li><a href="#features" class="hover:text-primary">Features</a></li>
+      <li><a href="#industries" class="hover:text-primary">Industries</a></li>
+      <li><a href="#about" class="hover:text-primary">About</a></li>
+      <li><a href="/blog" class="button">Blog</a></li>
+      <li><a href="#contact" class="button primary">Contact Us</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- Hero Slider -->
+<section id="hero" class="hero-section bg-gradient-to-r from-cloud-white to-light-stone py-20">
+  <div class="container mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+    <!-- Enhanced Text Content -->
+    <div class="hero-content space-y-6">
+      <p class="text-sm font-medium uppercase tracking-wider text-slate-500">
+        Reimagining Insurance to Unlock Real Customer Value
+      </p>
+      <h1 class="text-4xl lg:text-6xl font-bold text-dark-charcoal">
+        A unified exchange platform for <span class="text-primary">Insurance</span>
+      </h1>
+      <p class="text-lg lg:text-xl text-slate-700">
+        Increase your sales conversions, build lasting trust, deliver unmatched value, and encourage repeat business—seamlessly.
+      </p>
+      <div class="flex flex-wrap gap-4">
+        <a href="#get-started" class="inline-block bg-primary text-white font-semibold px-8 py-3 rounded-md shadow-lg hover:bg-primary-dark transition-transform transform hover:scale-105">
+          Get Started
+        </a>
+        <a href="#features" class="inline-block bg-transparent border border-primary text-primary font-semibold px-8 py-3 rounded-md hover:bg-primary hover:text-white transition">
+          Explore Features
+        </a>
+      </div>
+    </div>
+    <!-- Enhanced Graphic Illustration with animation -->
+    <div class="hero-graphic">
+      <img src="https://qixent.com/wp-content/uploads/2025/07/hero-illustration-insurance.png" alt="Abstract geometric insurance illustration" class="w-full h-auto animate-float">
+    </div>
+  </div>
+</section>
+
+<!-- Stats -->
+<section class="stats bg-cloud py-16">
+  <div class="container mx-auto">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+      <div x-data="{count:0}" x-intersect.once="let end=30;let t=setInterval(()=>{if(count<end)count++;else clearInterval(t)},50)" class="stat-card">
+        <div class="text-4xl font-head font-bold text-primary" x-text="count+'%'"></div>
+        <div class="text-slate">Conversion Lift</div>
+      </div>
+      <div x-data="{count:0}" x-intersect.once="let end=100;let t=setInterval(()=>{if(count<end)count++;else clearInterval(t)},20)" class="stat-card">
+        <div class="text-4xl font-head font-bold text-primary" x-text="count+'+'"></div>
+        <div class="text-slate">Partner Integrations</div>
+      </div>
+      <div x-data="{count:0}" x-intersect.once="let end=50;let t=setInterval(()=>{if(count<end)count++;else clearInterval(t)},30)" class="stat-card">
+        <div class="text-4xl font-head font-bold text-primary" x-text="count+'%'"></div>
+        <div class="text-slate">Faster Launch Times</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- Testimonials Section -->
+<section class="bg-cloud py-16">
+  <div class="container mx-auto text-center" x-data="{
+      items: [
+        { text: '“Qixent increased our conversions by 30% within the first month.”', author: 'Jane Doe, CEO of SolarCo' },
+        { text: '“The integration was seamless and saved us weeks of development time.”', author: 'John Smith, CTO at HRPro' },
+        { text: '“Our customers love the transparency and speed of claims processing.”', author: 'Aisha Khan, Operations Lead at MarketPlaceX' }
+      ],
+      current: 0,
+      init() {
+        setInterval(() => { this.current = (this.current + 1) % this.items.length }, 5000)
+      }
+    }">
+    <h2 class="text-2xl font-head mb-6">What Our Customers Say</h2>
+    <template x-for="(item, index) in items" :key="index">
+      <div x-show="current === index" class="p-6 transition-opacity duration-500">
+        <p class="italic mb-4 text-lg" x-text="item.text"></p>
+        <div class="font-semibold text-primary" x-text="'— ' + item.author"></div>
+      </div>
+    </template>
+  </div>
+</section>
+
+
+<!-- Features Section -->
+<section id="features" class="py-20 bg-cloud-white">
+  <div class="container mx-auto text-center">
+    <h2 class="text-4xl font-head font-bold text-dark-charcoal mb-10">Platform Features</h2>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+
+      <!-- Feature 1 -->
+      <div class="feature-card p-8 bg-white rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300">
+        <img src="https://qixent.com/wp-content/uploads/2025/07/stopwatch.png" alt="Real-Time Underwriting Icon" class="mx-auto mb-6 h-16">
+        <h4 class="font-head text-xl font-semibold text-dark-charcoal mb-3">Real-Time</h4>
+        <p class="text-slate-600">Instant, precise quotes powered by advanced analytics, delivering rapid results.</p>
+      </div>
+
+      <!-- Feature 2 -->
+      <div class="feature-card p-8 bg-white rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300">
+        <img src="https://qixent.com/wp-content/uploads/2025/07/easy-to-use.png" alt="API-First Integration Icon" class="mx-auto mb-6 h-16">
+        <h4 class="font-head text-xl font-semibold text-dark-charcoal mb-3">No Integration Costs</h4>
+        <p class="text-slate-600">Seamlessly integrate our plug & play insurance into your existing workflows.</p>
+      </div>
+
+      <!-- Feature 3 -->
+      <div class="feature-card p-8 bg-white rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300">
+        <img src="https://qixent.com/wp-content/uploads/2025/07/monitor.png" alt="Claims Automation Icon" class="mx-auto mb-6 h-16">
+        <h4 class="font-head text-xl font-semibold text-dark-charcoal mb-3">Parametric Claims</h4>
+        <p class="text-slate-600">Automatic monitoring and payouts—no submissions required, just effortless claims.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- Integration Diagram -->
+<section id="integration" class="py-16 bg-white text-dark-charcoal">
+  <div class="container mx-auto flex flex-col lg:flex-row items-center justify-between gap-12">
+    <!-- Left Side (Text Content) -->
+    <div class="lg:w-1/2 space-y-6">
+      <h2 class="text-4xl font-bold">Win More Deals with Protection Customers Understand and Trust</h2>
+      <p class="text-slate mb-10">Flexible no-code options enable you to launch rapidly, saving you time and resources.</p>
+      <a href="#contact" class="inline-block bg-primary text-white font-semibold px-6 py-3 rounded-lg hover:bg-red-600 transition">
+        Talk to sales
+      </a>
+    </div>
+
+    <!-- Right Side (Integration Diagram) -->
+    <div class="lg:w-1/2 flex items-center justify-center gap-6">
+      <!-- Insurer Box -->
+      <div class="p-6 bg-violet rounded-lg shadow-lg flex flex-col items-center text-white w-40 h-40 justify-center">
+        <img src="https://qixent.com/wp-content/uploads/2025/07/insurer.png" alt="Insurer Icon" class="w-12 h-12 mb-2">
+        <span class="font-semibold">Insurer</span>
+      </div>
+
+      <!-- Arrow to Qixent -->
+      <div class="w-10 border-t-2 border-dashed border-slate"></div>
+
+      <!-- Qixent Box -->
+      <div class="p-6 bg-primary rounded-lg shadow-lg flex flex-col items-center text-white w-40 h-40 justify-center">
+        <img src="https://qixent.com/wp-content/uploads/2025/06/Qixent-Logo-Q-Stamp-Cloud.webp" alt="Qixent Icon" class="w-12 h-12 mb-2">
+        <span class="font-semibold">Qixent</span>
+      </div>
+
+      <!-- Arrow to Customer Experience -->
+      <div class="w-10 border-t-2 border-dashed border-slate"></div>
+
+      <!-- Customer Experience Box -->
+      <div class="p-6 bg-mint rounded-lg shadow-lg flex flex-col items-center text-white w-40 h-40 justify-center">
+        <img src="https://qixent.com/wp-content/uploads/2025/07/purchase.png" alt="Experience Icon" class="w-12 h-12 mb-2">
+        <span class="font-semibold text-center">Your Distribution</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- Industries -->
+<section id="industries" class="py-16 bg-white">
+  <div class="container mx-auto">
+    <h2 class="font-head text-3xl text-center mb-10">Industries We Support Today</h2>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+      <div class="p-6 bg-white shadow-md rounded-lg hover:shadow-lg transition-shadow">
+        <img src="https://qixent.com/wp-content/uploads/2025/07/solar-energy.png" alt="Residential Solar" class="mx-auto mb-4 h-16">
+        <h3 class="text-xl font-semibold mb-2">Residential Solar</h3>
+        <p class="text-slate">Turn Every Solar System Into a Smarter Purchase—with Built-In Assurance.</p>
+      </div>
+      <div class="p-6 bg-white shadow-md rounded-lg hover:shadow-lg transition-shadow">
+        <img src="https://qixent.com/wp-content/uploads/2025/07/gig-economy.png" alt="Gig Platforms" class="mx-auto mb-4 h-16">
+        <h3 class="text-xl font-semibold mb-2">Gig Economy</h3>
+        <p class="text-slate">Work-Ready Coverage That’s Baked In—No Paperwork, No Guesswork.</p>
+      </div>
+      <div class="p-6 bg-white shadow-md rounded-lg hover:shadow-lg transition-shadow">
+        <img src="https://qixent.com/wp-content/uploads/2025/07/marketplace.png" alt="Marketplaces & SaaS" class="mx-auto mb-4 h-16">
+        <h3 class="text-xl font-semibold mb-2">Marketplaces</h3>
+        <p class="text-slate">Make Safety a Standard, Not an Upsell.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- About Section -->
+<section id="about" class="about-section py-16 bg-cloud" aria-labelledby="about-title">
+  <div class="container max-w-3xl mx-auto text-center">
+    <h2 id="about-title" class="section-title text-4xl font-head font-bold mb-6">About Qixent</h2>
+    <p class="section-description text-lg text-slate-700 leading-relaxed">
+      Qixent (pronounced "Qwix-ent") is a Chicago-based insurtech on a mission to transform how modern insurance is delivered.
+    </p>
+    <p class="section-description text-lg text-slate-700 leading-relaxed mt-4">
+      We believe insurance should be valuable to customers and deeply embedded in the customer experience.
+    </p>
+    <p class="text-lg text-slate-600 mt-4">
+      With our platform, companies of all sizes—from startups to enterprises—can unlock new revenue streams, build trust with customers, and use innovative insurance solutions to deliver more value to their customers.
+    </p>
+  </div>
+</section>
+
+<!-- Team Section -->
+<section id="team" class="pt-0 pb-20 bg-cloud">
+  <div class="container mx-auto text-center">
+    <h2 id="team-title" class="text-4xl font-head font-bold text-dark-charcoal mb-10">The Team</h2>
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10">
+
+      <!-- Team Member 1 -->
+      <div class="team-member p-6 bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
+        <img src="https://qixent.com/wp-content/uploads/2024/01/image.webp" alt="Photo of Randel Bennett, CEO & Cofounder" class="w-32 h-32 rounded-full mx-auto mb-4 object-cover">
+        <h3 class="text-xl font-semibold text-dark-charcoal">Randel Bennett</h3>
+        <p class="text-slate">CEO &amp; Cofounder</p>
+      </div>
+
+      <!-- Team Member 2 -->
+      <div class="team-member p-6 bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
+        <img src="https://qixent.com/wp-content/uploads/2025/04/Glenn-Profile-Pic-Web.webp" alt="Photo of Glenn Yancy, CPO & Cofounder" class="w-32 h-32 rounded-full mx-auto mb-4 object-cover">
+        <h3 class="text-xl font-semibold text-dark-charcoal">Glenn Yancy</h3>
+        <p class="text-slate">CPO &amp; Cofounder</p>
+      </div>
+
+      <!-- Team Member 3 -->
+      <div class="team-member p-6 bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
+        <img src="placeholder-team3.jpg" alt="Photo of Anne Frank, Marketing" class="w-32 h-32 rounded-full mx-auto mb-4 object-cover">
+        <h3 class="text-xl font-semibold text-dark-charcoal">Anne Frank</h3>
+        <p class="text-slate">Marketing</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CTA & Contact -->
+<section class="bg-primary text-white text-center py-20">
+  <div class="container mx-auto">
+    <h2 class="font-head text-4xl font-bold mb-6">Ready to Deliver Exceptional Value?</h2>
+    <p class="text-lg mb-8">Start your journey with Qixent and provide your customers with a seamless insurance experience.</p>
+        <a href="#contact" class="inline-block bg-transparent border border-primary text-white font-semibold px-8 py-3 rounded-md hover:bg-primary hover:text-white transition">
+          Get Started With Qixent
+        </a>
+  </div>
+</section>
+
+<section id="contact" class="py-20 bg-cloud-white">
+  <div class="container max-w-xl mx-auto bg-white rounded-lg shadow-xl p-8">
+    <h2 class="text-3xl font-head font-semibold text-center mb-8">Contact Us</h2>
+    <form class="contact-form space-y-6">
+      <input type="text" placeholder="Your Name" class="w-full p-4 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary">
+      <input type="email" placeholder="you@example.com" class="w-full p-4 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary">
+      <textarea rows="6" placeholder="Your message..." class="w-full p-4 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary"></textarea>
+      <button type="submit" class="inline-block bg-primary text-white font-semibold px-8 py-3 rounded-md shadow-lg hover:bg-primary-dark transition-transform transform hover:scale-105">
+          Send Message</button>
+    </form>
+  </div>
+</section>
+
+<!-- Footer Section -->
+<footer class="bg-light text-dark py-8">
+  <div class="container mx-auto px-4 text-center space-y-8">
+
+    <!-- Grid Layout for Footer Links -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-center">
+      <!-- Qixent Stamp -->
+      <div>
+        <img src="https://qixent.com/wp-content/uploads/2025/06/Qixent-Logo-Q-Stamp.webp" alt="Qixent Stamp Logo" class="mx-auto h-10 w-auto">
+      </div>
+
+      <!-- Qixent Information -->
+      <div>
+        <h4 class="font-head text-xl font-semibold mb-4">Qixent</h4>
+        <ul class="space-y-2">
+          <li><a href="#about" class="hover:text-primary transition">About Us</a></li>
+          <li><a href="#careers" class="hover:text-primary transition">Careers</a></li>
+          <li><a href="#privacy" class="hover:text-primary transition">Privacy Policy</a></li>
+        </ul>
+      </div>
+
+      <!-- Connect Information -->
+      <div>
+        <h4 class="font-head text-xl font-semibold mb-4">Connect</h4>
+        <ul class="space-y-2">
+          <li><a href="mailto:info@qixent.com" class="hover:text-primary transition">info@qixent.com</a></li>
+          <li><a href="#contact" class="hover:text-primary transition">Contact Us</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Copyright -->
+    <div class="text-gray-400">
+      &copy; <span id="currentYear"></span> Qixent, Inc. All Rights Reserved.
+    </div>
+  </div>
+  </footer>
+  
+  <!-- JavaScript for Dynamic Year -->
+  <script>
+    document.getElementById('currentYear').textContent = new Date().getFullYear();
+  </script>
+</footer>
+
+</body>
+</html>
